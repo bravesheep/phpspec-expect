@@ -1,5 +1,5 @@
 {
-    "name":         "bravesheep/phpspec-expect-mink",
+    "name":         "bravesheep/phpspec-expect",
     "description":  "Add the expect function for BDD style assertions",
     "keywords":     ["BDD", "SpecBDD", "TDD", "spec", "specification"],
     "license":      "MIT",
@@ -12,11 +12,10 @@
     "autoload": {
         "files": ["src/expect.php"],
         "psr-4": {
-            "Bravesheep\\PhpspecExpectMink\\": "src/Bravesheep/PhpspecExpectMink/"
+            "Bravesheep\\PhpspecExpect\\": "src/Bravesheep/PhpspecExpect/"
         }
     },
     "require": {
-        "phpspec/phpspec": "2.*",
-        "behat/mink": "1.5.*"
+        "phpspec/phpspec": "2.*"
     }
 }

@@ -1,8 +1,7 @@
 <?php
 
-namespace Bravesheep\PhpspecExpectMink;
+namespace Bravesheep\PhpspecExpect;
 
-use Bravesheep\PhpspecExpectMink\Matcher as MinkMatchers;
 use PhpSpec\Formatter\Presenter\Differ\ArrayEngine;
 use PhpSpec\Formatter\Presenter\Differ\Differ;
 use PhpSpec\Formatter\Presenter\Differ\StringEngine;
@@ -186,22 +185,6 @@ class ContainerHolder
 
         $container->setShared('matchers.matcher.string_regex', function (ServiceContainer $c) {
             return new Matcher\StringRegexMatcher($c->get('formatter.presenter'));
-        });
-
-        $container->setShared('matchers.matcher.mink.cookie_existance', function (ServiceContainer $c) {
-            return new MinkMatchers\MinkCookieExistanceMatcher($c->get('formatter.presenter'));
-        });
-
-        $container->setShared('matchers.matcher.mink.element', function (ServiceContainer $c) {
-            return new MinkMatchers\MinkElementExistanceMatcher($c->get('formatter.presenter'));
-        });
-
-        $container->setShared('matchers.matcher.mink.regex_url', function (ServiceContainer $c) {
-            return new MinkMatchers\MinkRegexUrlMatcher($c->get('formatter.presenter'));
-        });
-
-        $container->setShared('matchers.matcher.mink.url', function (ServiceContainer $c) {
-            return new MinkMatchers\MinkUrlMatcher($c->get('formatter.presenter'));
         });
     }
 }

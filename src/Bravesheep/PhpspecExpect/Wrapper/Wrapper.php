@@ -1,6 +1,6 @@
 <?php
 
-namespace Bravesheep\PhpspecExpectMink\Wrapper;
+namespace Bravesheep\PhpspecExpect\Wrapper;
 
 use PhpSpec\Exception\ExceptionFactory;
 use PhpSpec\Formatter\Presenter\PresenterInterface;

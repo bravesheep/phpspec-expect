@@ -1,6 +1,6 @@
 <?php
 
-namespace Bravesheep\PhpspecExpectMink\Wrapper;
+namespace Bravesheep\PhpspecExpect\Wrapper;
 
 use PhpSpec\Wrapper\Subject as BaseSubject;
 use PhpSpec\Wrapper\Subject\Expectation\DuringCall;
