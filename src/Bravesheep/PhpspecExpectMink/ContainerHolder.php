@@ -2,6 +2,7 @@
 
 namespace Bravesheep\PhpspecExpectMink;
 
+use Bravesheep\PhpspecExpectMink\Matcher as MinkMatchers;
 use PhpSpec\Formatter\Presenter\Differ\ArrayEngine;
 use PhpSpec\Formatter\Presenter\Differ\Differ;
 use PhpSpec\Formatter\Presenter\Differ\StringEngine;
@@ -129,7 +130,7 @@ class ContainerHolder
 
     private function setupMatchers(ServiceContainer $container)
     {
-        $container->setShared('matcher_manager', function (ServiceContainer $c) {
+        $container->set('matcher_manager', function (ServiceContainer $c) {
             $matchers = new MatcherManager($c->get('formatter.presenter'));
 
             array_map(
@@ -139,52 +140,68 @@ class ContainerHolder
             return $matchers;
         });
 
-        $container->set('matchers.matcher.identity', function (ServiceContainer $c) {
+        $container->setShared('matchers.matcher.identity', function (ServiceContainer $c) {
             return new Matcher\IdentityMatcher($c->get('formatter.presenter'));
         });
 
-        $container->set('matchers.matcher.comparison', function (ServiceContainer $c) {
+        $container->setShared('matchers.matcher.comparison', function (ServiceContainer $c) {
             return new Matcher\ComparisonMatcher($c->get('formatter.presenter'));
         });
 
-        $container->set('matchers.matcher.throw', function (ServiceContainer $c) {
+        $container->setShared('matchers.matcher.throw', function (ServiceContainer $c) {
             return new Matcher\ThrowMatcher($c->get('unwrapper'), $c->get('formatter.presenter'));
         });
 
-        $container->set('matchers.matcher.type', function (ServiceContainer $c) {
+        $container->setShared('matchers.matcher.type', function (ServiceContainer $c) {
             return new Matcher\TypeMatcher($c->get('formatter.presenter'));
         });
 
-        $container->set('matchers.matcher.object_state', function (ServiceContainer $c) {
+        $container->setShared('matchers.matcher.object_state', function (ServiceContainer $c) {
             return new Matcher\ObjectStateMatcher($c->get('formatter.presenter'));
         });
 
-        $container->set('matchers.matcher.scalar', function (ServiceContainer $c) {
+        $container->setShared('matchers.matcher.scalar', function (ServiceContainer $c) {
             return new Matcher\ScalarMatcher($c->get('formatter.presenter'));
         });
 
-        $container->set('matchers.matcher.array_count', function (ServiceContainer $c) {
+        $container->setShared('matchers.matcher.array_count', function (ServiceContainer $c) {
             return new Matcher\ArrayCountMatcher($c->get('formatter.presenter'));
         });
 
-        $container->set('matchers.matcher.array_key', function (ServiceContainer $c) {
+        $container->setShared('matchers.matcher.array_key', function (ServiceContainer $c) {
             return new Matcher\ArrayKeyMatcher($c->get('formatter.presenter'));
         });
 
-        $container->set('matchers.matcher.array_contain', function (ServiceContainer $c) {
+        $container->setShared('matchers.matcher.array_contain', function (ServiceContainer $c) {
             return new Matcher\ArrayContainMatcher($c->get('formatter.presenter'));
         });
 
-        $container->set('matchers.matcher.string_start', function (ServiceContainer $c) {
+        $container->setShared('matchers.matcher.string_start', function (ServiceContainer $c) {
             return new Matcher\StringStartMatcher($c->get('formatter.presenter'));
         });
 
-        $container->set('matchers.matcher.string_end', function (ServiceContainer $c) {
+        $container->setShared('matchers.matcher.string_end', function (ServiceContainer $c) {
             return new Matcher\StringEndMatcher($c->get('formatter.presenter'));
         });
 
-        $container->set('matchers.matcher.string_regex', function (ServiceContainer $c) {
+        $container->setShared('matchers.matcher.string_regex', function (ServiceContainer $c) {
             return new Matcher\StringRegexMatcher($c->get('formatter.presenter'));
+        });
+
+        $container->setShared('matchers.matcher.mink.cookie_existance', function (ServiceContainer $c) {
+            return new MinkMatchers\MinkCookieExistanceMatcher($c->get('formatter.presenter'));
+        });
+
+        $container->setShared('matchers.matcher.mink.element', function (ServiceContainer $c) {
+            return new MinkMatchers\MinkElementExistanceMatcher($c->get('formatter.presenter'));
+        });
+
+        $container->setShared('matchers.matcher.mink.regex_url', function (ServiceContainer $c) {
+            return new MinkMatchers\MinkRegexUrlMatcher($c->get('formatter.presenter'));
+        });
+
+        $container->setShared('matchers.matcher.mink.url', function (ServiceContainer $c) {
+            return new MinkMatchers\MinkUrlMatcher($c->get('formatter.presenter'));
         });
     }
 }
