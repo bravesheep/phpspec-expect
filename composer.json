@@ -1,0 +1,21 @@
+{
+    "name":         "bravesheep/phpspec-expect-mink",
+    "description":  "Add the expect function for BDD style assertions",
+    "keywords":     ["BDD", "SpecBDD", "TDD", "spec", "specification"],
+    "license":      "MIT",
+    "authors":      [
+        {
+            "name": "Ruben Nijveld",
+            "email": "ruben@bravesheep.nl"
+        }
+    ],
+    "autoload": {
+        "files": ["src/expect.php"],
+        "psr-4": {
+            "Bravesheep\\PhpspecExpectMink\\": "src/Bravesheep/PhpspecExpectMink/"
+        }
+    },
+    "require": {
+        "phpspec/phpspec": "2.*"
+    }
+}
