@@ -1,8 +1,8 @@
 <?php
 
-use Bravesheep\PhpspecExpectMink\ContainerHolder;
-use Bravesheep\PhpspecExpectMink\Wrapper\Subject;
-use Bravesheep\PhpspecExpectMink\Wrapper\Wrapper;
+use Bravesheep\PhpspecExpect\ContainerHolder;
+use Bravesheep\PhpspecExpect\Wrapper\Subject;
+use Bravesheep\PhpspecExpect\Wrapper\Wrapper;
 use PhpSpec\Formatter\Presenter\TaggedPresenter;
 use PhpSpec\Loader\Node\ExampleNode;
 use PhpSpec\Matcher\CallbackMatcher;
