@@ -1,7 +1,7 @@
 {
     "name":         "bravesheep/phpspec-expect",
     "description":  "Add the expect function for BDD style assertions",
-    "keywords":     ["BDD", "SpecBDD", "TDD", "spec", "specification"],
+    "keywords":     ["BDD", "SpecBDD", "TDD", "spec", "specification", "phpspec"],
     "license":      "MIT",
     "authors":      [
         {
