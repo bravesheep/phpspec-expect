@@ -16,6 +16,6 @@
         }
     },
     "require": {
-        "phpspec/phpspec": "2.*"
+        "phpspec/phpspec": "~5.1"
     }
 }
